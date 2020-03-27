@@ -1,0 +1,69 @@
+<div class="home-hero home-bg">
+    <div class="container ">
+    <div class="">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Welcome to Gidi Library</h1>
+                <p>The widest collection of books</p>
+                <!-- <input class="form-control" type="text" placeholder="Search book"> -->
+                <button class="btn btn-primary mt-5 mr-2" routerLink='/register'>
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- <div class="bg-light">
+    <div class="container">
+    <div class="py-5">
+        <div>
+            <h2>Services</h2>
+            <p>The widest collection of books</p>
+        </div>
+        <div class="row mt-5">
+            <div class="col-4" *ngFor="let card of [1,2,3], let i=index">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            services  {{i + 1}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div> -->
+<div class="main-wrapper bg-light">
+  <div class="container">
+    <div class="py-5">
+        <div>
+            <h2>Featured Books</h2>
+            <p>The widest collection of books</p>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3" *ngFor="let card of recentlyAddedBooks, let i=index">
+                <div class="card book-card">
+                    <img class="card-image" [src]="card.bookImage">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            {{card.title}}
+                        </h4>
+                        <p class="">
+                            {{card.description}}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col alert alert-danger" *ngIf="recentlyAddedBooks.length < 1" >
+                <p class="text-danger">We currently adding books into the library</p>
+            </div>
+            
+        </div>
+    </div>
+</div>  
+</div>

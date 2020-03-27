@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h4 class="modal-title">Update book: {{bookToUpdate.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]="updateBookForm">
+
+                <div class="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="title" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="author" placeholder="Author">
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" formControlName="description"
+                            placeholder="Description">
+
+                         </textarea>
+                    </div>
+                    <input formControlName="bookImage" class="d-none" type="file" accept=".jpeg,.png" (change)="getBookImage($event)" #addImage>
+                    <ng-container *ngIf="!updateBookForm.valid && updateBookForm.dirty && updateBookForm.touched">
+                        <small class="text-danger">Please complete all fields</small>
+                    </ng-container>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <img class="book-image--rounded" *ngIf="bookImage else noImage" [src]="bookImage">
+            <ng-template #noImage>
+                <div class="add-book-image book-image--rounded">
+                    click to Update book image
+                    <button class="btn btn-outline-dark mt-3" (click)="addImage.click()">Update image</button>
+                </div>
+            </ng-template>
+
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" [disabled]="!updateBookForm.valid" (click)="updateBook()">Update Book</button>
+</div>

@@ -1,0 +1,50 @@
+
+<div class="main-wrapper bg-light">
+    <div class="container">
+        <div class="py-5">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Quickly see the data the matters to you</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4" *ngFor="let card of dashboardStats ; let i=index">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <i [class]="'card-icon ' +card.icon"></i>
+                            <h4 class="card-stats mt-3">{{card.count}}</h4>
+                            <p>
+                                {{card.title}}
+                                
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="py-5">
+            <div>
+                <h2>Recently Added Books</h2>
+                <p>The widest collection of books</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4" *ngFor="let card of recentlyAddedBooks, let i=index">
+                    <div class="card book-card">
+                        <img class="card-image" [src]="card.bookImage">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                {{card.title}}
+                            </h4>
+                            <p class="">
+                                {{card.description}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

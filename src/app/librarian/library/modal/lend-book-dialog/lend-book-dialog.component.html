@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <h4 class="modal-title">Lend book: {{bookToLend.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <form >
+
+                <div class="">
+                    <div class="form-group">
+                        <select class="form-control" placeholder="Title"
+                            (change)="addUser($event)">
+                            <option selected disabled>select user</option>
+                            <option [value]="user.id" *ngFor="let user of allusers">
+                                {{user.username}}
+                            </option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <p>This book has been lent to these people</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of usersLent, let i = index">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{user?.user?.username | titlecase}}</td>
+                        <td>{{user?.dateLent | date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+
+            <ng-container *ngFor="let user of selectedUsers">
+                <button class="btn btn-light mr-3">
+                    <span class="mr-2">
+                        {{user.username}}
+                    </span>
+                    <i class="fa fa-times"(click)="removeUser(user.id)"></i>
+                </button>
+            </ng-container>
+
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" [disabled]="selectedUsers.length < 1" (click)="lendBook()">Lend
+        Book</button>
+</div>

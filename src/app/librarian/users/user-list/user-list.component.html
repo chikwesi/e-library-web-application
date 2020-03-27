@@ -1,0 +1,57 @@
+<div class="main-wrapper bg-light">
+    <div class="container">
+        <h2>All users</h2>
+
+
+        <div class="card mt-5 border-0">
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="search user"
+                                    [formControl]="filter">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                     <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Date Created</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <tr *ngFor="let user of users$ | async">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.username | titlecase}}</td>
+                            <td>{{user.dateCreated | date}}</td>
+                            <td><button class="btn btn-transparent" (click)="deleteUser(user.id)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+               
+                <!-- <div class="d-flex justify-content-between p-2">
+                    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+                    </ngb-pagination>
+
+                    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                        <option [ngValue]="2">2 items per page</option>
+                        <option [ngValue]="4">4 items per page</option>
+                        <option [ngValue]="6">6 items per page</option>
+                    </select>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+</div>

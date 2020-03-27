@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+$primary-color: #d39e00;
+.home-hero{
+    min-height: 80vh;
+    padding-top: 10em;
+    padding-bottom: 10em;
+}
+.main-wrapper{
+    min-height: 80vh;
+    padding-top: 5em;
+    padding-bottom: 10em;
+}
+.btn-primary {
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $primary-color;
+&:hover, &:focus, &:active {
+    color: #fff;
+    background-color: darken($primary-color, 10);
+    border-color: darken($primary-color, 10);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem lighten($primary-color, 0);
+
+}
+&.disabled, &:disabled {
+    color: #fff;
+    background-color: lighten($primary-color, 10);
+    border-color: lighten($primary-color, 10);
+}
+}
+.btn{
+    border-radius: 0 !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.bg-primary {
+    background-color: darken($primary-color, 10) !important;
+}
+.text-primary{
+    color: darken($primary-color , 10)!important;
+}
+.card{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.card.book-card{
+    padding-bottom: 2rem;
+    border: none;
+    border-radius: 6px;
+    text-align:  left;
+    cursor: pointer;
+    .card-image{
+        height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+        border-bottom: solid 4px darken($primary-color, 10);
+    }
+    &:hover{
+        -webkit-box-shadow: 0px 13px 21px -11px rgba(6, 42, 97, 0.45);
+         -moz-box-shadow: 0px 13px 21px -11px  rgba(6, 42, 97, 0.45);
+         box-shadow: 0px 13px 21px -11px  rgba(6, 42, 97, 0.45);
+         margin-top: -10px;
+    };
+}

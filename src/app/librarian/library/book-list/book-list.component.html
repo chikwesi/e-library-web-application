@@ -1,0 +1,69 @@
+<div class="main-wrapper bg-light">
+    <div class="container">
+        <h2>All books</h2>
+
+
+        <div class="card mt-5 border-0">
+            <div class="card-body">
+                <div class="form-row justify-content-between">
+                    <div class="col-md-4">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="search books"
+                                    [formControl]="filter">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-sm btn-primary" (click)="addBook()">
+                            Add Book
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Date Created</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let book of books$ | async">
+                                <th scope="row">{{book.id}}</th>
+                                <td><img width="30" class="book-image" [src]="book.bookImage" height="30"></td>
+                                <td>{{book.title | titlecase}}</td>
+                                <td>{{book.author| titlecase}}</td>
+                                <td>{{book.description| titlecase}}</td>
+                                <td class="text-date">{{book.dateCreated | date}}</td>
+                                <td><button class="mr-2 btn btn-sm btn-transparent" (click)="updateBook(book)"><i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="mr-2 btn btn-sm btn-transparent" (click)="lendBook(book)"><i class="fa fa-user-tag"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-transparent" (click)="deleteBook(book.id)"><i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="d-flex justify-content-between p-2" >
+                    <ngb-pagination [collectionSize]="this.bookList.length" [(page)]="page" [pageSize]="pageSize">
+                    </ngb-pagination>
+
+                    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                        <option [ngValue]="2">2 items per page</option>
+                        <option [ngValue]="4">4 items per page</option>
+                        <option [ngValue]="6">6 items per page</option>
+                    </select>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+</div>

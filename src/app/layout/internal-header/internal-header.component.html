@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" *ngIf="userId == 0">
+    <a class="navbar-brand">Gidi library</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLink="/dashboard" routerLinkActive="active">
+                <a class="nav-link">Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLink="/library" routerLinkActive="active">
+                <a class="nav-link">Library</a>
+            </li>
+            <li class="nav-item" class="nav-item" routerLink="/users" routerLinkActive="active">
+                <a class="nav-link">Users</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-light my-2 my-sm-0 mr-2" (click)="logout()">Logout</button>
+        </form>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" *ngIf="userId > 0">
+    <a class="navbar-brand">Gidi library</a>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLink="/user" routerLinkActive="active">
+            <a class="nav-link">Books <span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-light my-2 my-sm-0 mr-2" (click)="logout()">Logout</button>
+    </form>
+</nav>
